@@ -9,6 +9,10 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
+app.get("/", (req, res) => {
+  res.send("🚀 Backend is running! Welcome to the API.");
+});
+
 app.post("/classify", (req: Request, res: Response) => {
   const booking: Booking = req.body;
   if (!booking) return res.status(400).json({ error: "Missing booking data" });
